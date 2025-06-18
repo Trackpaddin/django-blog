@@ -1,0 +1,30 @@
+<!-- blog/templates/blog/index.html -->
+{% extends "base.html" %}
+
+{% block page_title %}
+    <h1 class="mb-4 ps-4">Blog Posts</h1>
+{% endblock page_title %}
+
+{% block page_content %}
+    {% block posts %}
+        {% for post in posts %}
+            <div class="card-custom">
+                <h3>
+                    <a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a>
+                    {% if post.status == 'draft' %}
+                        <span class="badge bg-warning text-dark">Draft</span>
+                    {% endif %}
+                </h3>
+                <small>
+                    {{ post.created_on.date }} | Categories:
+                    {% for category in post.categories.all %}
+                        <a href="{% url 'blog_category' category.name %}">
+                            {{ category.name }}
+                        </a>
+                    {% endfor %}
+                </small>
+                <p>{{ post.body }}</p>
+            </div>
+        {% endfor %}
+    {% endblock posts %}
+{% endblock page_content %}

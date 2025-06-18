@@ -1,0 +1,35 @@
+<!-- blog/templates/blog/search_results.html -->
+{% extends "base.html" %}
+
+{% block page_title %}
+    {% if posts %}
+        <h1 class="mb-4 ps-4">Search results for: "{{ query }}"</h1>
+    {% else %}
+        <h1 class="mb-4 ps-4">No results found</h1>
+    {% endif %}
+{% endblock page_title %}
+
+{% block page_content %}
+    {% block posts %}
+        {% if posts %}
+            {% for post in posts %}
+                <div class="card-custom">
+                    <h3><a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a></h3>
+                    <small>
+                        {{ post.created_on.date }} | Categories:
+                        {% for category in post.categories.all %}
+                            <a href="{% url 'blog_category' category.name %}">
+                                {{ category.name }}
+                            </a>
+                        {% endfor %}
+                    </small>
+                    <p>{{ post.body }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="card-custom">
+                <p>Try searching for something else.</p>
+            </div>
+        {% endif %}
+    {% endblock posts %}
+{% endblock page_content %}
