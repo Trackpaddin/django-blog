@@ -1,0 +1,10 @@
+/* blog/static/css/ckeditor_content.css */
+
+.cke_editable {
+    color: #000 !important;
+}
+
+/* For CKEditor 5 */
+.ck-content {
+    color: #000 !important;
+}

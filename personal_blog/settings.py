@@ -181,9 +181,13 @@ CKEDITOR_5_CONFIGS = {
                 {'model': 'heading2', 'view': 'h2', 'title': 'Heading 2', 'class': 'ck-heading_heading2'},
                 {'model': 'heading3', 'view': 'h3', 'title': 'Heading 3', 'class': 'ck-heading_heading3'}
             ]
-        }
+        },
+        'placeholder': 'Write something...',
     }
 }
+
+# Custom CSS for Dark Mode Fix
+CKEDITOR_5_CUSTOM_CSS = 'css/admin_dark_mode_fix.css'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
