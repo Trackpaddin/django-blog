@@ -1,4 +1,5 @@
 # blog/admin.py
+# ignores for Pylance
 
 from django.contrib import admin
 from blog.models import Category, Comment, Post
@@ -18,12 +19,12 @@ class PostAdmin(admin.ModelAdmin):
     def make_published(self, request, queryset):
         count = queryset.update(status='published', published_date=timezone.now())
         self.message_user(request, f'{count} posts marked as published.')
-    make_published.short_description = 'Mark selected posts as published'
+    make_published.short_description = 'Mark selected posts as published' # type: ignore
     
     def make_draft(self, request, queryset):
         count = queryset.update(status='draft')
         self.message_user(request, f'{count} posts marked as draft.')
-    make_draft.short_description = 'Mark selected posts as draft'
+    make_draft.short_description = 'Mark selected posts as draft' # type: ignore
 
 class CommentAdmin(admin.ModelAdmin):
     pass

@@ -4,9 +4,6 @@
 {% block page_title %}
     <h2>
         {{ post.title }}
-        {% if post.status == 'draft' %}
-            <span class="badge bg-warning text-dark">Draft</span>
-        {% endif %}
     </h2>
 {% endblock page_title %}
 
