@@ -23,19 +23,20 @@
         <button class="navbar-toggler navbar-toggler-custom" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon navbar-toggler-custom-icon"></span>
         </button>
+        <!-- make classes to move the links to the right -->
         <div class="collapse navbar-collapse" id="navbarNav">
-            <form class="d-flex ms-auto me-3" role="search" method="get" action="{% url 'blog_search' %}">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link navbar-link {% if request.resolver_match.url_name == 'blog_index' %}active{% endif %}" href="{% url 'blog_index' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link navbar-link {% if request.resolver_match.url_name == 'blog_about' %}active{% endif %}" href="{% url 'blog_about' %}">About</a>
+                </li>
+            </ul>
+            <form class="d-flex" role="search" method="get" action="{% url 'blog_search' %}">
                 <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-light btn-custom-search" type="submit">Search</button>
             </form>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link navbar-link" href="{% url 'blog_index' %}">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link navbar-link" href="{% url 'blog_about' %}">About</a>
-                </li>
-            </ul>
         </div>
     </div>
 </nav>

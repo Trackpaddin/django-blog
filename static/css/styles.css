@@ -153,7 +153,7 @@ a:hover {
 /* Custom search form styling */
 .navbar .form-control {
   background: rgba(255, 255, 255, 0.1);
-  border: 1px solid var(--color-primary);
+  border: 1px solid var(--color-secondary);
   color: var(--color-text);
   border-radius: 0.5rem;
 }

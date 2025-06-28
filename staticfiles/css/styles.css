@@ -5,13 +5,116 @@
   --color-card: #272727 !important;
   --color-text: #f3f4f6 !important;
   --color-muted: #9ca3af !important;
+  --font-main: "Inter", Helvetica, Arial, system-ui, sans-serif;
+  --shadow-base: 0 2px 8px 0 rgba(0,0,0,0.05);
 }
 
 /* ===========================
-    Navbar Custom Classes - Bootstrap Integration
+   Base Styles
+   =========================== */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-main);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.5em;
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1rem; }
+h6 { font-size: 0.875rem; }
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover {
+  color: var(--color-secondary);
+  text-decoration: underline;
+}
+
+/* ===========================
+   Custom Utility Classes
+   =========================== */
+.text-muted {
+  color: var(--color-muted);
+}
+
+.container-custom {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 16px 16px;
+}
+
+.card-custom {
+  background: var(--color-card);
+  border-radius: 12px;
+  box-shadow: var(--shadow-base);
+  padding: 32px;
+  margin-bottom: 32px;
+  transition: box-shadow 0.2s;
+}
+
+.card-custom:hover {
+  box-shadow: 0 4px 20px 0 rgba(37,99,235,0.10);
+}
+
+.card-custom-input {
+  background: var(--color-card);
+  border-radius: 12px;
+  box-shadow: var(--shadow-base);
+  padding: 32px;
+  margin-bottom: 32px;
+  transition: box-shadow 0.2s;
+  width: 100%;
+  max-width: none;
+}
+
+.card-custom-input:hover {
+  box-shadow: 0 4px 20px 0 rgba(37,99,235,0.10);
+}
+
+.card-custom-manager {
+  background: var(--color-card);
+  border-radius: 12px;
+  box-shadow: var(--shadow-base);
+  padding: 32px;
+  margin-bottom: 32px;
+  transition: box-shadow 0.2s;
+}
+
+.card-custom-manager:hover {
+  box-shadow: 0 4px 20px 0 rgba(37,99,235,0.10);
+}
+
+/* ===========================
+   Responsive Helpers
+   =========================== */
+@media (max-width: 600px) {
+  .container-custom {
+    padding: 16px 8px;
+  }
+  .card-custom {
+    padding: 16px;
+  }
+}
+
+/* ===========================
+    Navbar Custom Classes
     =========================== */
 
-/* Override Bootstrap navbar with your custom styling */
 .navbar.navbar-custom {
   background: var(--color-card) !important;
   color: var(--color-text);
@@ -22,7 +125,6 @@
   border: none;
 }
 
-/* Custom brand styling */
 .navbar-brand.navbar-logo {
   font-size: 1.5rem;
   font-weight: 700;
@@ -31,7 +133,6 @@
   text-decoration: none;
 }
 
-/* Custom nav links styling */
 .navbar-nav .nav-link.navbar-link {
   color: var(--color-primary) !important;
   font-weight: 500;
@@ -52,7 +153,7 @@
 /* Custom search form styling */
 .navbar .form-control {
   background: rgba(255, 255, 255, 0.1);
-  border: 1px solid var(--color-primary);
+  border: 1px solid var(--color-secondary);
   color: var(--color-text);
   border-radius: 0.5rem;
 }
@@ -112,4 +213,32 @@
   .navbar .form-control {
     margin-bottom: 1rem;
   }
+}
+
+/* ProseMirror editor styles */
+.ProseMirror {
+  outline: none;
+  min-height: 200px;
+  color: var(--color-text);
+}
+
+.ProseMirror p {
+  margin: 1em 0;
+}
+
+.ProseMirror h2 {
+  margin: 1em 0 0.5em;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+.ProseMirror ul,
+.ProseMirror ol {
+  margin: 1em 0;
+  padding-left: 1em;
+}
+
+.ProseMirror li {
+  margin: 0.5em 0;
 }
