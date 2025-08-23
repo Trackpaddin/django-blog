@@ -34,8 +34,7 @@
                 </li>
             </ul>
             <form class="d-flex" role="search" method="get" action="{% url 'blog_search' %}">
-                <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-light btn-custom-search" type="submit">Search</button>
+                <input id="search-input" class="form-control me-2" type="search" name="q" placeholder="Search (Ctrl+K)" aria-label="Search">
             </form>
         </div>
     </div>
@@ -44,5 +43,29 @@
     {% block page_title %}{% endblock page_title %}
     {% block page_content %}{% endblock page_content %}
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('search-input');
+        
+        document.addEventListener('keydown', function(event) {
+            if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
+                event.preventDefault();
+                
+                if (searchInput) {
+                    searchInput.focus();
+                    searchInput.select();
+                }
+            }
+        });
+        
+        if (searchInput) {
+            searchInput.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape') {
+                    searchInput.blur();
+                }
+            });
+        }
+    });
+</script>
 </body>
 </html>
