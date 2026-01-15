@@ -1,11 +1,11 @@
 :root {
   --color-primary: #e5e7eb !important;
-  --color-secondary: #e6af2e !important;
-  --color-bg: #000000 !important;
-  --color-card: #272727 !important;
+  --color-secondary: #73fbf0 !important;
+  --color-bg: #590360 !important;
+  --color-card: #6b0473 !important;
   --color-text: #f3f4f6 !important;
   --color-muted: #9ca3af !important;
-  --font-main: "Inter", Helvetica, Arial, system-ui, sans-serif;
+  --font-main: "Playfair Display", 'Times New Roman', system-ui, sans-serif;
   --shadow-base: 0 2px 8px 0 rgba(0,0,0,0.05);
 }
 
@@ -60,10 +60,10 @@ a:hover {
 
 .card-custom {
   background: var(--color-card);
-  border-radius: 12px;
+  /* border-radius: 12px; */
   box-shadow: var(--shadow-base);
   padding: 32px;
-  margin-bottom: 32px;
+  margin: auto;
   transition: box-shadow 0.2s;
 }
 
@@ -71,38 +71,10 @@ a:hover {
   box-shadow: 0 4px 20px 0 rgba(37,99,235,0.10);
 }
 
-.card-custom-input {
-  background: var(--color-card);
-  border-radius: 12px;
-  box-shadow: var(--shadow-base);
-  padding: 32px;
-  margin-bottom: 32px;
-  transition: box-shadow 0.2s;
-  width: 100%;
-  max-width: none;
-}
-
-.card-custom-input:hover {
-  box-shadow: 0 4px 20px 0 rgba(37,99,235,0.10);
-}
-
-.card-custom-manager {
-  background: var(--color-card);
-  border-radius: 12px;
-  box-shadow: var(--shadow-base);
-  padding: 32px;
-  margin-bottom: 32px;
-  transition: box-shadow 0.2s;
-}
-
-.card-custom-manager:hover {
-  box-shadow: 0 4px 20px 0 rgba(37,99,235,0.10);
-}
-
 /* ===========================
    Responsive Helpers
    =========================== */
-@media (max-width: 600px) {
+@media (max-width: 720px) {
   .container-custom {
     padding: 16px 8px;
   }
@@ -186,16 +158,16 @@ a:hover {
 }
 
 /* Custom toggler styling */
-.navbar-toggler.navbar-toggler-custom {
+.navbar-toggler {
   border-color: var(--color-primary);
   padding: 0.25rem 0.5rem;
 }
 
-.navbar-toggler.navbar-toggler-custom:focus {
+.navbar-toggler:focus {
   box-shadow: 0 0 0 0.2rem rgba(230, 175, 46, 0.25);
 }
 
-.navbar-toggler-icon.navbar-toggler-custom-icon {
+.navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23e5e7eb' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
