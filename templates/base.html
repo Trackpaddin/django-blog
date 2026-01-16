@@ -17,24 +17,24 @@
     {% bootstrap_javascript %}
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom" role="navigation">
+    <nav class="navbar navbar-expand-lg navbar-dark" role="navigation">
     <div class="container-fluid">
-        <a class="navbar-brand navbar-logo" href="{% url 'blog_index' %}">Trackpaddin</a>
+        <a class="navbar-brand" href="{% url 'blog_index' %}">Trackpaddin</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon "></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
         <!-- make classes to move the links to the right -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link navbar-link {% if request.resolver_match.url_name == 'blog_index' %}active{% endif %}" href="{% url 'blog_index' %}">Home</a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'blog_index' %}active{% endif %}" href="{% url 'blog_index' %}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link navbar-link {% if request.resolver_match.url_name == 'blog_about' %}active{% endif %}" href="{% url 'blog_about' %}">About</a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'blog_about' %}active{% endif %}" href="{% url 'blog_about' %}">About</a>
                 </li>
             </ul>
-            <form class="d-flex" role="search" method="get" action="{% url 'blog_search' %}">
-                <input id="search-input" class="form-control me-2" type="search" name="q" placeholder="Search (Ctrl+K)" aria-label="Search">
+            <form class="me-2"  role="search" method="get" action="{% url 'blog_search' %}">
+                <input id="search-input" class="form-control rounded-4" type="search" name="q" placeholder="Search (Ctrl+K)" aria-label="SearchBox">
             </form>
         </div>
     </div>
