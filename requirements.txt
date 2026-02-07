@@ -1,0 +1,12 @@
+# Core Framework
+Django>=5.2,<5.3
+
+# Third-party Django Apps
+django-bootstrap5>=24.2
+django-ckeditor-5>=0.2.13
+
+# Configuration Management
+python-decouple>=3.8
+
+# Additional utilities (commonly needed)
+Pillow>=10.0.0
