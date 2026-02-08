@@ -13,7 +13,7 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ('status', 'created_on', 'published_date', 'categories')
     search_fields = ('title', 'body')
     ordering = ('-created_on',)
-    
+    filter_horizontal = ('categories',)
     actions = ['make_published', 'make_draft']
     
     def make_published(self, request, queryset):
