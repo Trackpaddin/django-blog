@@ -1,10 +1,11 @@
 # blog/views.py
 
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from blog.models import Post, Comment
 from blog.forms import CommentForm
 from django.db.models import Q
+from django.contrib.admin.views.decorators import staff_member_required
 
 def blog_index(request):
     posts = Post.objects.filter(status="published").order_by("-created_on")
@@ -12,6 +13,14 @@ def blog_index(request):
         "posts": posts,
     }
     return render(request, "blog/index.html", context)
+
+@staff_member_required
+def preview_draft(request):
+    post = get_object_or_404(Post, pk=request.GET.get("pk"))
+    context = {
+        "post": post,
+    }
+    return render(request, "blog/preview.html", context)
 
 def search_posts(request):
     query = request.GET.get('q', '')

@@ -1,0 +1,19 @@
+<!-- blog/templates/blog/preview.html -->
+
+{% extends "base.html" %}
+
+{% block page_title %}
+    <h2>{{ post.title }}
+        <span class="badge rounded-pill bg-danger text-light" style="font-size: 0.35em; font-family: sans-serif;">Draft</span>
+    </h2>
+{% endblock page_title %}
+
+{% block page_content %}
+    <small>
+        {{ post.created_on.date }} | Categories:
+        {% for category in post.categories.all %}
+            <a href="{% url 'blog_category' category.name %}">{{ category.name }}</a>{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </small>
+    <p>{{ post.body | safe }}</p>
+{% endblock page_content %}
