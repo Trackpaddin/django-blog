@@ -4,7 +4,7 @@
 from django.contrib import admin
 from django.urls import reverse
 from django.utils.html import format_html
-from blog.models import Category, Comment, Post
+from blog.models import Category, Post
 from django.utils import timezone
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -40,10 +40,6 @@ class PostAdmin(admin.ModelAdmin):
         return '-'
     preview_link.short_description = 'Preview' # type: ignore
 
-class CommentAdmin(admin.ModelAdmin):
-    pass
-
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Post, PostAdmin)
-admin.site.register(Comment, CommentAdmin)
 

@@ -79,7 +79,6 @@ a:hover {
 
 .card-custom {
   background: var(--color-card);
-  /* border-radius: 12px; */
   box-shadow: var(--shadow-base);
   padding: 32px;
   margin: auto;
