@@ -21,7 +21,7 @@
                         <a href="{% url 'blog_category' category.name %}">{{ category.name }}</a>{% if not forloop.last %}, {% endif %}
                     {% endfor %}
                 </small>
-                <p>{{ post.body }}</p>
+                <p>{{ post.body | safe }}</p>
             </div>
         {% endfor %}
     {% endblock posts %}

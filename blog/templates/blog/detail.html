@@ -16,7 +16,7 @@
             </a>
         {% endfor %}
     </small>
-    <p>{{ post.body | linebreaks }}</p>
+    <p>{{ post.body | safe }}</p>
 
     <h3>Leave a comment:</h3>
     <form method="post">

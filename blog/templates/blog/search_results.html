@@ -23,7 +23,7 @@
                             </a>
                         {% endfor %}
                     </small>
-                    <p>{{ post.body }}</p>
+                    <p>{{ post.body | safe }}</p>
                 </div>
             {% endfor %}
         {% else %}
