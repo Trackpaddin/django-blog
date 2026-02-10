@@ -2,7 +2,9 @@
 body[data-theme="dark"] {
   --color-primary: #e5e7eb;
   --color-secondary: #73fbf0;
+  --toggle-bg: gray;
   --color-bg: #0a0a0a;
+  --toggle-circle: #e5e7eb;
   --color-card: #1a1a1a;
   --color-text: #f3f4f6;
   --color-muted: #9ca3af;
@@ -15,6 +17,8 @@ body[data-theme="light"] {
   --color-primary: #1a1a1a;
   --color-secondary: #0891b2;
   --color-bg: #ffffff;
+  --toggle-bg: gray;
+  --toggle-circle: #1a1a1a;
   --color-card: #f5f5f5;
   --color-text: #1f2937;
   --color-muted: #6b7280;
@@ -32,8 +36,9 @@ body[data-theme="light"] {
    Base Styles
    =========================== */
 body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
+  background: light-dark(var(--color-bg), var(--color-bg));
+  color: light-dark(var(--color-text), var(--color-text));
+  color-scheme: light dark;
   font-family: var(--font-main);
   line-height: 1.6;
   min-height: 100vh;
@@ -63,6 +68,10 @@ a:hover {
   text-decoration: underline;
 }
 
+p {
+  margin-top: 1rem;
+}
+
 /* ===========================
    Custom Utility Classes
    =========================== */
@@ -81,7 +90,9 @@ a:hover {
   background: var(--color-card);
   box-shadow: var(--shadow-base);
   padding: 32px;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
   transition: box-shadow 0.2s;
 }
 
@@ -136,6 +147,38 @@ a:hover {
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
   color: var(--color-secondary) !important;
+}
+
+/* Dark mode toggle styling */
+#dark-mode-toggle {
+  display: none;
+}
+
+.toggle {
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+  background: var(--toggle-bg);
+  border-radius: 30px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.toggle::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  background: var(--toggle-circle);
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+#dark-mode-toggle:checked + .toggle::before {
+  transform: translateX(30px);
 }
 
 /* Custom search form styling */
