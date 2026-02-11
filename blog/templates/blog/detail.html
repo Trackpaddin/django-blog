@@ -1,12 +1,8 @@
 <!--  blog/templates/blog/detail.html -->
 {% extends "base.html" %}
-
 {% block page_title %}
-    <h2>
-        {{ post.title }}
-    </h2>
+    <h2>{{ post.title }}</h2>
 {% endblock page_title %}
-
 {% block page_content %}
     <small>
         {{ post.created_on.date }} | Categories:

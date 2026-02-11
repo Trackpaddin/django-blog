@@ -5,8 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My Personal Blog</title>
-    
+    <title>My Personal Blog</title>    
     {% load django_bootstrap5 %}
     {% load static %}
     {% bootstrap_css %}
@@ -17,9 +16,13 @@
     {% bootstrap_javascript %}
 </head>
 <body data-theme="dark">
-    <nav class="navbar" role="navigation">
+    <nav class="navbar navbar-expand-lg" role="navigation">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'blog_index' %}">Trackpaddin</a> 
+        <a class="navbar-brand" href="{% url 'blog_index' %}">Trackpaddin</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <a class="nav-link {% if request.resolver_match.url_name == 'blog_index' %}active{% endif %}" href="{% url 'blog_index' %}">Home</a>
@@ -31,6 +34,7 @@
             <form class="me-2"  role="search" method="get" action="{% url 'blog_search' %}">
                 <input id="search-input" class="form-control rounded-4" type="search" name="q" placeholder="Search (Ctrl+K)" aria-label="SearchBox">
             </form>
+        </div>
     </div>
 </nav>
 <div class="container-custom card-custom">
@@ -55,8 +59,7 @@
                     searchInput.select();
                 }
             }
-        });
-        
+        }); 
         if (searchInput) {
             searchInput.addEventListener('keydown', function(event) {
                 if (event.key === 'Escape') {
@@ -64,18 +67,6 @@
                 }
             });
         }
-        // Dark mode toggle
-        const toggle = document.getElementById('dark-mode-toggle');
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            document.body.setAttribute('data-theme', savedTheme);
-            toggle.checked = (savedTheme === 'light');
-        }
-        toggle.addEventListener('change', function() {
-            const theme = toggle.checked ? 'light' : 'dark';
-            document.body.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
-        });
     });
 </script>
 </body>
