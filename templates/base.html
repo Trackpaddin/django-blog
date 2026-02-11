@@ -17,14 +17,9 @@
     {% bootstrap_javascript %}
 </head>
 <body data-theme="dark">
-    <nav class="navbar navbar-expand-lg" role="navigation">
+    <nav class="navbar" role="navigation">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'blog_index' %}">Trackpaddin</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <!-- make classes to move the links to the right -->
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <a class="navbar-brand" href="{% url 'blog_index' %}">Trackpaddin</a> 
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <a class="nav-link {% if request.resolver_match.url_name == 'blog_index' %}active{% endif %}" href="{% url 'blog_index' %}">Home</a>
@@ -33,18 +28,19 @@
                     <a class="nav-link {% if request.resolver_match.url_name == 'blog_about' %}active{% endif %}" href="{% url 'blog_about' %}">About</a>
                 </li>
             </ul>
-            <input type="checkbox" id="dark-mode-toggle" />
-            <label for="dark-mode-toggle" class="toggle"></label>
             <form class="me-2"  role="search" method="get" action="{% url 'blog_search' %}">
                 <input id="search-input" class="form-control rounded-4" type="search" name="q" placeholder="Search (Ctrl+K)" aria-label="SearchBox">
             </form>
-        </div>
     </div>
 </nav>
 <div class="container-custom card-custom">
     {% block page_title %}{% endblock page_title %}
     {% block page_content %}{% endblock page_content %}
 </div>
+<footer class="text-center">
+    <div class="container-custom">
+        <p>Copyright &copy; 2022 Trackpaddin</p>
+    </div>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Ctrl+K shortcut
