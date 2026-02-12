@@ -66,6 +66,11 @@ a:hover {
   margin: auto;
   transition: box-shadow 0.2s;
 }
+.card-custom small {
+  color: var(--color-muted);
+  display: block;
+  margin-bottom: 10px;
+}
 .card-custom:hover {
   box-shadow: 0 4px 20px 0 rgba(37,99,235,0.10);
 }

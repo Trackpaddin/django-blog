@@ -37,7 +37,7 @@ def search_posts(request):
 
 def blog_category(request, category):
     posts = Post.objects.filter(
-        categories__name__contains=category,
+        categories__name__iexact=category,
         status="published"
     ).order_by("-created_on")
     context = {
@@ -47,7 +47,7 @@ def blog_category(request, category):
     return render(request, "blog/category.html", context)
 
 def blog_detail(request, pk):
-    post = Post.objects.get(pk=pk, status="published")
+    post = Post.objects.get_object_or_404(pk=pk, status="published")
     context = {
         "post": post,
     }
@@ -55,6 +55,3 @@ def blog_detail(request, pk):
 
 def about(request):
     return render(request, 'blog/about.html')
-
-def contact(request):
-    return render(request, 'blog/contact.html')

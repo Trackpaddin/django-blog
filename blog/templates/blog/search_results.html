@@ -17,12 +17,12 @@
                     <small>
                         {{ post.created_on.date }} | Categories:
                         {% for category in post.categories.all %}
-                            <a href="{% url 'blog_category' category.name %}">
+                            <a href="{% url 'blog_category' category.name %}">{% if not forloop.last %}, {% endif %}
                                 {{ category.name }}
                             </a>
                         {% endfor %}
                     </small>
-                    <p>{{ post.body | safe }}</p>
+                    <div>{{ post.body | safe }}</div>    
                 </div>
             {% endfor %}
         {% else %}
