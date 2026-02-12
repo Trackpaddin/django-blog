@@ -10,3 +10,4 @@ python-decouple>=3.8
 
 # Additional utilities (commonly needed)
 Pillow>=10.0.0
+whitenoise>=6.11.0
