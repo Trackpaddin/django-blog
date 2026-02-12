@@ -1,5 +1,4 @@
 <!-- templates/base.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,10 +14,10 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     {% bootstrap_javascript %}
 </head>
-<body data-theme="dark">
+<body>
     <nav class="navbar navbar-expand-lg" role="navigation">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'blog_index' %}">Trackpaddin</a>
+        <a class="navbar-brand" href="{% url 'blog_index' %}">My Personal Blog</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -43,7 +42,7 @@
 </div>
 <footer class="text-center">
     <div class="container-custom">
-        <p>Copyright &copy; 2022 Trackpaddin</p>
+        <p>Copyright &copy; 2026</p>
     </div>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
